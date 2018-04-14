@@ -1,6 +1,6 @@
 import { connect } from '../../api/echoService'
 
-let timer
+let timer = null
 
 const state = {
   api: null,
@@ -77,7 +77,9 @@ const actions = {
 
   connect ({ commit, dispatch }) {
     commit('saveWs', connect({ onmessage: data => dispatch('onResponse', data) }))
-    timer = setInterval(() => commit('recalcTimeouts'), 1000)
+    if (timer === null) {
+      timer = setInterval(() => commit('recalcTimeouts'), 1000)
+    }
   },
 
   disconnect ({ state }) {
