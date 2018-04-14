@@ -2,7 +2,7 @@
   <div class="">
     <div>
       <div class="status-bar">
-        <div class="status">Total: 
+        <div class="status">Total:
           <b>{{ activeComments.length + deletedComments.length + pendingDeleteComments.length }}</b>
         </div>
         <div>
@@ -44,7 +44,7 @@ import { mapState, mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'WebSockets',
-  mounted () {
+  created () {
     this.connect()
   },
   data () {
@@ -89,6 +89,7 @@ export default {
 
 .status {
   padding-left: 10px;
+  user-select: none;
 }
 
 .comment {
@@ -97,6 +98,7 @@ export default {
   background-color: lightgoldenrodyellow;
   position: relative;
   .delete-button, .undelete-button, .timeout {
+    user-select: none;
     position: absolute;
     background-color: red;
     color: white;

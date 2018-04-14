@@ -75,9 +75,9 @@ const actions = {
     }
   },
 
-  connect ({ commit, dispatch }) {
-    commit('saveWs', connect({ onmessage: data => dispatch('onResponse', data) }))
-    if (timer === null) {
+  connect ({ commit, dispatch, state }) {
+    if (!state.api) {
+      commit('saveWs', connect({ onmessage: data => dispatch('onResponse', data) }))
       timer = setInterval(() => commit('recalcTimeouts'), 1000)
     }
   },
