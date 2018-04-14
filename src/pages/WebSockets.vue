@@ -2,7 +2,9 @@
   <div class="">
     <div>
       <div class="status-bar">
-        <div class="status">Total: <b>{{ activeComments.length + deletedComments.length }}</b></div>
+        <div class="status">Total: 
+          <b>{{ activeComments.length + deletedComments.length + pendingDeleteComments.length }}</b>
+        </div>
         <div>
           Timeout:
           <input class="input-timeout" type="number" v-model.number="timeout" />
