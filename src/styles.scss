@@ -1,0 +1,33 @@
+@keyframes gradient {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -400% 0;
+  }
+}
+
+.module-loader {
+  animation: gradient 7s linear infinite;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 4px;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(to right, white 30%, red 50%);
+  background-size: 200% 100%;
+  overflow: hidden;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
